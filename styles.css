@@ -1,0 +1,346 @@
+*,*::before,*::after{
+    /* color:black; */
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Merriweather Sans", sans-serif;
+}
+
+:root {
+    --colorDark1: #112d4e;
+    --colorDark2: #3f72af;
+    --colorLight1: #dbe2ef;
+    --colorLight2: #f9f7f7;
+}
+
+.wrapper{
+    max-width:100vw;
+    min-height:140vh;
+    color:var(--colorLight2);
+    background-image:linear-gradient(160deg,#112d4e 0%,#3f72af 100%)
+}
+
+h1{
+    text-align:center;
+    text-transform:uppercase;
+    padding-top:20px;
+    word-spacing: 2px;
+    letter-spacing: 1.75px;
+}
+
+.tab-container{
+    display:flex;
+    justify-content:space-between;
+
+    /* max-width given of 550px as witthout it the items were going at the end corners and taking full page width but now they are taking max-width  */
+    max-width:550px;
+    margin:0 auto;
+
+    /* normal case me 90% width but max width 550px */
+    width:90%;
+    margin-top:4rem;
+}
+
+.tab{
+    cursor:pointer;
+    font-size:0.875rem; 
+    letter-spacing:1.75px;
+    padding:5px 8px;
+}
+
+.tab.current-tab{
+    background-color:rgba(219,226,239,0.5);
+    border-radius:4px;
+}
+
+.form-container.active{
+    scale:1;
+    opacity:1;
+    display:flex;
+}
+
+.weather-container{
+
+    /* no nedd of flex as ek bar me ek contianer hi show hoga so koi faida nahi h flex karke */
+    /* display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction:column;
+
+    /* margin-block means top and bottom ka margin set */
+    margin-block:4rem;   
+}
+
+.btn{
+    all:unset;
+    font-size:0.85rem;
+    text-transform:uppercase;
+    border-radius:5px;
+    background-color: var(--colorDark2);
+    cursor:pointer;
+    padding:10px 30px;
+    margin-bottom:10px;
+    color:white;
+
+    /* button ka andar se default properties hatane k lie use all */
+    /* all:unset; agar idhar likhenge to upar wali prop bhi hatjengi */
+    /* appeareance:none,bordee:none se bhi ho jega*/
+}
+
+.sub-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    /* width: 90%;
+    margin: 0 auto;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+.grant-location-container{
+    /* done this to make it invisible and it will be visible with js code only */
+    display:none; 
+
+}
+
+/* to make it visible on jas add active class */
+
+.grant-location-container.active{
+    display:flex; 
+
+}
+
+.grant-location-container img{
+    margin-bottom:2rem;
+
+}
+
+/* means p type ka jo pehla element mil jae */
+
+.grant-location-container p:first-of-type{
+    font-size:1.75rem;
+    font-weight:600;
+   
+
+}
+
+/* means p type ka jo last element mil jae */
+
+.grant-location-container p:last-of-type{
+    font-size:0.85rem;
+    font-weight:500;
+    margin-top:0.75rem;
+    margin-bottom:1.75rem;
+    letter-spacing:0.75px;
+
+}
+
+.loading-container{
+    display:none;
+
+}
+
+/* to make it visisble
+ */
+.loading-container.active{
+    display:flex;
+}
+
+.loading-container p{
+    text-transform:uppercase;
+
+    /* to make this para in center add grant location walisubclass here also */
+}
+
+.user-info-container{
+
+    /* for search wale pe na dikhane k lie */
+    display:none;
+}
+
+.user-info-container.active{
+    display:flex;
+}
+
+.name{
+    display:flex;
+    /* vertically center */
+
+    align-items:center;
+    gap:0 0.5rem;
+    margin-bottom:1rem;
+}
+
+.name p{
+    font-size:2rem;
+}
+
+.user-info-container img{
+    width:90px;
+    height:90px;
+}
+
+.name img{
+    width:30px;
+    height:30px;
+    /* object-fit: contain; jitna size btaya uske andara container krne k kam ata h */
+}
+
+.user-info-container p{
+    font-size:1.5rem;
+    font-weight:200;
+}
+
+.user-info-container p[data-temp]{
+    font-size:2.75rem;
+    font-weight:700;
+}
+
+.parameter-container{
+    width:90%;
+    display:flex;
+    gap:10px 20px;
+    justify-content:center;
+    align-items:center;
+    margin-top:2rem;
+    flex-wrap:wrap;
+    
+}
+
+.parameter{
+    width:30%;
+    max-width:200px;
+    background-color:rgba(219,226,239,0.5);
+    border-radius:5px;
+    padding:1rem;
+    display:flex;
+    flex-direction:column;
+    gap:5px 0;
+    align-items:center;
+}
+
+.parameter img{
+    width:50px;
+    height:50px;
+
+}
+
+.parameter p:first-of-type{
+    font-size:1.15rem;
+    font-weight:600;
+    text-transform:uppercase;
+
+}
+
+.parameter p:last-of-type{
+    font-size:1rem;
+    font-weight:200;
+}
+
+.form-container{
+    display:none;
+    /* display:flex; */
+    width:90%;
+    max-width:550px;
+    margin:0 auto;
+    justify-content:center;
+    align-items:center;
+    gap:0 10px;
+    margin-bottom:3rem;
+}
+
+/* to make form container visible */
+
+.form-container.active{
+    display:flex;
+}
+
+.form-container input{
+    all:unset; 
+    width:calc(100% - 80px);  
+
+    /* 80px mme margin,search wal button ko de diya*/
+    height:40px;
+    padding:0 20px;
+    background-color:rgba(219,226,239,0.5);
+    border-radius:10px;
+
+}
+
+.form-container input::placeholder{
+    color:rgba(255,255,255,0.7);
+}
+
+/* make outline on input */
+
+.form-container input:focus{
+    outline:3px solid rgba(255,255,255,0.7);
+}
+
+.form-container .btn{
+
+    /* padding  removed*/
+
+    padding:unset;
+    width:40px;
+    height:40px;
+
+    /* image should be centered so use flex*/
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:100%;
+    /* margin-bottom jo upar de rakhi thi uski vajah se 0 aa rah tha so manually correct krdo */
+    margin-bottom:1px;
+}
+
+.api-error-container {
+    display: none;
+}
+
+.api-error-container.active {
+    display: flex;
+    gap: 1rem 0;
+}
+
+.api-error-container p {
+    text-align: center;
+}
+
+.api-error-container img {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+
+/* media queries */
+
+@media (max-width: 768px) {
+    .parameter-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .parameter {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .tab-container {
+        margin-top: 2rem;
+        width: 80%;
+    }
+
+    .tab {
+        font-size: 0.75rem;
+    }
+
+}
